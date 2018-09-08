@@ -122,7 +122,7 @@
 	</ul>
 	</p>
 	<p>В качестве блоков используются PHP переменные и функции, заключенные в обозначение PHP и функции <strong>echo</strong><br>
-	Переменные (для того, что бы отличать их от функций) в PHP начинаются со знака <strong>$</strong>, например <strong>$price_new</strong><br><strong>Примечание.</strong> записи <code>&lt;? echo переменная ?&gt;</code> и <code>&lt;?= переменная ?&gt;</code> - абсолютно аналогичные.</p>
+	Переменные (для того, что бы отличать их от функций) в PHP начинаются со знака <strong>$</strong>, например <strong>$price_new</strong><br><strong>Примечание.</strong> Записи <code>&lt;? echo переменная ?&gt;</code> и <code>&lt;?= переменная ?&gt;</code> - абсолютно аналогичные.</p>
 	<p>Если вы пользуетесь операционной системой <strong>Windows</strong> - то для редактирования файла <strong><i>index.php</i></strong>при установке конфигуратора удобнее всего пользоваться бесплатным текстовым редактором <strong>Notepad++</strong>.<br>Скачать его можно c официального сайта <a href="https://notepad-plus-plus.org/download/" target="_blank">https://notepad-plus-plus.org/</a>.</p><p>Хотя это не принципиально. Можно воспользоваться любым привычным для вас редактором.</p>
 	<h3 id="example">Пример страницы <strong>index.php</strong><br><small>с установленными блоками Конфигуратора 2.0 (содержится в дистрибутиве)</small></h3>
 	<p><pre class="brush: php">&lt;? require_once('config.php'); //  Подключаем конфигуратор ?&gt;
@@ -236,13 +236,14 @@
 							&lt;div class="form-group"&gt;
 								&lt;label for="inputEmail3" class="col-sm-2 control-label"&gt;Телефон:&lt;/label&gt;
 								&lt;div class="col-sm-10"&gt;
-									&lt;input type="text" name="phone" class="form-control phone" required placeholder="Телефон"&gt;
+									&lt;input type="text" name="phone" class="form-control" required placeholder="Телефон"&gt;
 								&lt;/div&gt;
 							&lt;/div&gt;
 						
 							&lt;div class="form-group text-center"&gt;		
 								&lt;input class="btn btn-primary" type="submit" value="Отправить"&gt;
-							&lt;/div&gt;	
+							&lt;/div&gt;
+							&lt;? lands::form('Главная форма'); // Имя формы с заказом ?&gt;							
 					&lt;/form&gt;
 					&lt;span class="help-block text-center"&gt;Мы не рассылаем спам и не передаем данные третьим лицам.&lt;/span&gt;
 				&lt;/div&gt;
@@ -282,9 +283,9 @@
 			&lt;/dl&gt;		
 			&lt;div id="footer"&gt;
 				&lt;div class="footer_text"&gt;
-					&lt;? lands::seller('blue'); // Данные о продавце ?&gt;
+					&lt;? lands::seller('blue'); // Данные о продавце (синий цвет) ?&gt;
 					&lt;br&gt;
-					&lt;? lands::politics('red'); // Политика конфиденциальности ?&gt;
+					&lt;? lands::politics('red'); // Политика конфиденциальности (красный цвет) ?&gt;
 				&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
@@ -313,10 +314,12 @@
 	<td>Устанавливается сразу после открывающегося тега <strong><i>&lt;body&gt;</i></strong></td></tr>
 	<tr><td><code>&lt;?  lands::footer(); ?&gt;</code></td>
 	<td>Устанавливается перед закрывающимся тегом <strong><i>&lt;/body&gt;</i></strong></td></tr>
-	<tr><td><code>&lt;? $valuta ?&gt;</code></td><td><strong>Валюта.</strong><br>Размещается в обозначении валюты</td></tr>
-	<tr><td><code>&lt;? $price_new ?&gt;</code></td><td><strong>Новая цена.</strong><br>Размещается в обозначении "новой" цены</td></tr>
-	<tr><td><code>&lt;? $price_old ?&gt;</code></td><td><strong>Старая цена.</strong><br>Размещается в обозначении  "старой" цены</td></tr>
-	<tr><td><code>&lt;? $skidka ?&gt;</code></td><td><strong>Скидка.</strong><br>Размещается в обозначении предоставлемой скидки</td></tr>
+	<tr><td><code>&lt;?= $currency ?&gt;</code></td><td><strong>Валюта.</strong><br>Размещается в обозначении валюты</td></tr>
+	<tr><td><code>&lt;?= $valuta ?&gt;</code></td><td><strong>Валюта.</strong><br>Дубликат переменной ,<code>&lt;?= $currency ?&gt;</code>, для совместимости с 1 версией</td></tr>
+	<tr><td><code>&lt;?= $price_new ?&gt;</code></td><td><strong>Новая цена.</strong><br>Размещается в обозначении "новой" цены</td></tr>
+	<tr><td><code>&lt;?= $price_old ?&gt;</code></td><td><strong>Старая цена.</strong><br>Размещается в обозначении  "старой" цены</td></tr>
+	<tr><td><code>&lt;?= $discount ?&gt;</code></td><td><strong>Скидка.</strong><br>Размещается в обозначении предоставлемой скидки</td></tr>
+	<tr><td><code>&lt;?= $skidka ?&gt;</code></td><td><strong>Скидка.</strong><br>Дубликат переменной ,<code>&lt;?= $discount ?&gt;</code>, для совместимости с 1 версией</td></tr>
 	<tr><td><code>&lt;? lands::seller(); ?&gt;</code></td><td><strong>Данные о продавце.</strong><br>Размещается в предусмотренном месте (обычно в футере)<br>Параметр - цвет. По умолчанию - черный.<br>Например: <code>&lt;? lands::seller('blue'); ?&gt;</code></td></tr>
 	<tr><td><code>&lt;? lands::politics(); ?&gt;</code></td><td><strong>Политика конфиденциальности.</strong><br>Размещается в предусмотренном месте (обычно в футере)<br>Параметр - цвет. По умолчанию - черный.<br>Например: <code>&lt;? lands::politics('red'); ?&gt;</code></td></tr>
 	</table>
@@ -328,11 +331,16 @@
 	</thead>
 	<tr><td><strong>Скрипт обработки формы.</strong><br>Размещается в поле <strong><i>action</i></strong> формы.<br>Например: <code>&lt;form action="zakaz.php" method="post" &gt;</code><br>Также обратите внимание, что должен быть указан метод передачи данных - <strong><i>POST</i></strong> (см. пример)</td><td><code>zakaz.php</code></td></tr>
 	<tr><td><strong>Переменная "Имя покупателя".</strong><br>Размещается в поле  <strong><i>name</i></strong> тега <strong><i>input</i></strong> формы.<br>Примеры:<br><code>&lt;input type="text" name="name" required placeholder="Имя"&gt;</code><br><code>&lt;input type="text" name="fio" required placeholder="Имя"&gt;</code><br>Важно. <br>Необходимо проверить (и если нет, то присвоить тегу атрибут <strong><i>required</i></strong> - чтобы не отправлялась пустая форма (см. пример)</td><td><code>name</code> <small>или</small><br><code>fio</code></td></tr>
-	<tr><td><strong>Переменная "Телефон покупателя".</strong><br>Размещается в поле  <strong><i>name</i></strong> тега <strong><i>input</i></strong> формы.<br>Примеры:<br><code>&lt;input type="text" name="phone" required class="form-control phone" placeholder="Телефон"&gt;</code><br><code>&lt;input type="text" name="tel" required class="phone" placeholder="Телефон"&gt;</code><br>Важно. <ol><li>Следует присвоить класс <strong><i>.phone</i></strong>. Если тегу <strong><i>input</i></strong> для ввода телефона класс уже присвоен - добавить через пробел (см. пример)</li><li>Необходимо проверить (и если нет, то присвоить тегу атрибут <strong><i>required</i></strong> - чтобы не отправлялась пустая форма (см. пример)</li>
-	</ol></td><td><code>phone</code> <small>или</small><br><code>tel</code></td></tr>
+	<tr><td><strong>Переменная "Телефон покупателя".</strong><br>Размещается в поле  <strong><i>name</i></strong> тега <strong><i>input</i></strong> формы.<br>Примеры:<br><code>&lt;input type="text" name="phone" required class="form-control" placeholder="Телефон"&gt;</code><br><code>&lt;input type="text" name="tel" required class="phone" placeholder="Телефон"&gt;</code><br>Важно. <br>Необходимо проверить (и если нет, то присвоить тегу атрибут <strong><i>required</i></strong> - чтобы не отправлялась пустая форма (см. пример)</td><td><code>phone</code> <small>или</small><br><code>tel</code></td></tr>
 
-	</table></p><p><blockquote>
-  <p><small><strong>Примечание:</strong><br>Для того, что бы в старых браузерах, не поддерживающих HTML5 не отправлялись пустые формы для верификации рекомендуется добавить JavaScript через обработчик событий <strong><i>onsubmit</i></strong>. <br>Пример для переменных <strong><i>name</i></strong> и <strong><i>phone</i></strong>:<br><code>&lt;form id="mform" class="form-horizontal thumbnail" role="form" action="zakaz.php" method="post" onsubmit="if(this.name.value==''){alert('Введите Ваше имя!');return false}if(this.phone.value==''){alert('Введите Ваш номер телефона!');return false}return true;"&gt; </code></small></p>
+	</table></p>
+	<p> <blockquote> <small>
+	<strong>Примечание 1.</strong><br>Если в вашем ленде несколько форм, и вам важно знать с какой из форм поступила заявка</strong>, то добавьте между тегами <code>&lt;form&gt;</code> и <code>&lt;/form&gt;</code> блок <code> &lt;? lands::form('название формы'); ?&gt;</code>
+	</small></blockquote>
+	</p>
+	
+	<p><blockquote>
+  <p><small><strong>Примечание 2:</strong><br>Для того, что бы в старых браузерах, не поддерживающих HTML5 не отправлялись пустые формы для верификации рекомендуется добавить JavaScript через обработчик событий <strong><i>onsubmit</i></strong>. <br>Пример для переменных <strong><i>name</i></strong> и <strong><i>phone</i></strong>:<br><code>&lt;form id="mform" class="form-horizontal thumbnail" role="form" action="zakaz.php" method="post" onsubmit="if(this.name.value==''){alert('Введите Ваше имя!');return false}if(this.phone.value==''){alert('Введите Ваш номер телефона!');return false}return true;"&gt; </code></small></p>
 </blockquote>
  </p>
 	<h3 id="block2">Дополнительные блоки</h3>
@@ -366,12 +374,14 @@
 	<tr><td><code> &lt;?= $seller_adress ?&gt;</code></td><td>Адрес продавца</td></tr>
 	<tr><td><code> &lt;?= $email ?&gt;</code></td><td>E-mail, на который отправлюятся письма</td></tr>
 	<tr><td><code> &lt;?= $country_script ?&gt;</code></td><td>ГЕО</td></tr>
-	<tr><td><code> &lt;?= $host ?&gt;</code></td><td>Название домена</td></tr>
-	<tr><td><code> &lt;?= $server ?&gt;</code></td><td>Полная ссылка на домен</td></tr>
+	<tr><td><code> &lt;?= $domen ?&gt;</code></td><td>"Голое" название домена</td></tr>
+	<tr><td><code> &lt;?= $host ?&gt;</code></td><td>Название домена с папкой (если есть)</td></tr>
+	<tr><td><code> &lt;?= $server ?&gt;</code></td><td>Полная ссылка на домен с папкой (если есть)</td></tr>
 	<tr><td><code> &lt;?= $device ?&gt;</code></td><td>Устройство (компьютер или мобильный)</td></tr>
 	<tr><td><code> &lt;?= $browser ?&gt;</code></td><td>Браузер</td></tr>
 	<tr><td><code> &lt;?= $os ?&gt;</code></td><td>Операционная система</td></tr>
 	<tr><td><code> &lt;?= $remote_addr ?&gt;</code></td><td>IP-адрес пользователя</td></tr>
+	<tr><td><code> &lt;?= $remote_host ?&gt;</code></td><td>Доменное имя узла IP-адреса пользователя</td></tr>
 	<tr><td><code> &lt;?= $proxy ?&gt;</code></td><td>Наличие прокси</tr>
 
 	
@@ -384,6 +394,7 @@
 	&lt;table border='0'&gt;
 	&lt;tr&gt;&lt;td colspan='2' height='40' &gt;&lt;p align='center'&gt;&lt;i&gt;Информация о покупателе:&lt;/i&gt;&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td&gt;&lt;b&gt;IP покупателя:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%ip%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;
+	&lt;tr&gt;&lt;td&gt;&lt;b&gt;Хост:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%remote_host%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;
 	&lt;td&gt;&lt;b&gt;Использование прокси:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%proxy%&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td&gt;&lt;b&gt;Страна (по IP):&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%country_code%&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td&gt;&lt;b&gt;Город (по IP):&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%city%&lt;/td&gt;&lt;/tr&gt;
@@ -393,7 +404,7 @@
 	&lt;tr&gt;&lt;td&gt;&lt;b&gt;ОС:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%os%&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td&gt;&lt;b&gt;Время на ленде:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%time_land%&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td&gt;&lt;b&gt;Кол-во визитов:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%visit%&lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td valign='top'&gt;&lt;b&gt;Прошлые визиты:&lt;/b&gt;&lt;/td&gt;
+	&lt;tr&gt;&lt;td valign='top'&gt;&lt;b&gt;Прошлый визит:&lt;/b&gt;&lt;/td&gt;
 	&lt;td&gt;%visit_text%&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td&gt;&lt;b&gt;Разрешение экрана:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%screen%&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td&gt;&lt;b&gt;Заряд батареи:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%batery_proc%&lt;/td&gt;&lt;/tr&gt;
@@ -411,7 +422,7 @@
 	<tr><td><b>Скидка:&nbsp; </b></td><td >53 %</td></tr><tr><td ><b>Покупатель:</b></td><td>Test by Proger</td></tr><tr><td ><b>Телефон: </b></td><td>+38(050) 478-42-74</td></tr><tr><td ><b>Сайт продажи:</b></td><td><a href='#' >http://site.com</a></td></tr><tr><td ><b>Дата заказа: </b></td><td>Пт, 18 Мая 2018 г.</td></tr><tr><td ><b>Время заказа: </b></td><td>13:26:35</td></tr></table><table border='0'>
 	<tr><td colspan='2' height='40' ><p align='center'><i>Информация о покупателе:</i></td></tr>
 	<tr><td><b>IP покупателя:</b></td><td>46.118.100.210</td></tr><tr>
-	<td><b>Использование прокси:</b></td><td>Не обнаружено</td></tr>
+	<td><b>Использование прокси:</b></td><td>No proxy</td></tr>
 	<tr><td><b>Страна (по IP):</b></td><td>UA</td></tr>
 	<tr><td><b>Город (по IP):</b></td><td>Запорожье, Запорожская область, Украина</td></tr>
 	<tr><td><b>Установленный язык:</b> </td><td>ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</td></tr>
@@ -420,11 +431,11 @@
 	<tr><td><b>ОС:</b></td><td>Windows 10</td></tr>
 	<tr><td><b>Время на ленде:</b></td><td>12 сек.</td></tr>
 	<tr><td><b>Кол-во визитов:</b></td><td>2</td></tr>
-	<tr><td valign='top'><b>Прошлые визиты:</b></td>
-	<td>1. | <i>18.05.2018 13:08:01</i> | ip: 46.118.100.210</u> (Запорожье, Запорожская область, Украина)<br></td></tr>
+	<tr><td valign='top'><b>Прошлый визит:</b></td>
+	<td><i>18.05.2018 13:08:01</i>, ip: 46.118.100.210, Хост: 46-118-100-210.broadband.kyivstar.net</u> (Запорожье, Запорожская область, Украина)<br></td></tr>
 	<tr><td><b>Разрешение экрана:</b></td><td>1366 х 768</td></tr>
-	<tr><td><b>Заряд батареи:</b></td><td>Не определено</td></tr>
-	<tr><td><b>Зарядное устройство:</b></td><td>Не подключено, или не определено</td></tr>
+	<tr><td><b>Заряд батареи:</b></td><td>60%</td></tr>
+	<tr><td><b>Зарядное устройство:</b></td><td>Подключено</td></tr>
 	<tr><td><b>Реферер:</b></td><td><a href='#' >http://f50478xq.beget.tech/ref/referal.php</a></td></tr>
 	<tr><td colspan='2'><p align='center'><b>UTM-метки: </b></p><tr><td><b>utm_source    </b> </td><td> utm_source</td></tr>
 <tr><td><b>utm_medium    </b> </td><td> utm_medium</td></tr>
@@ -454,10 +465,12 @@
 	<tr><td><code>%date%</code></td><td>Дата заказа</td></tr>
 	<tr><td><code>%time%</code></td><td>Время заказа</td></tr>
 	<tr><td><code>%time_land%</code></td><td>Время нахождения на ленде</td></tr>
-	<tr><td><code>%host%</code></td><td>Название домена</td></tr>
+	<tr><td><code>%domen%</code></td><td>"Голое" название домена</td></tr>
+	<tr><td><code>%host%</code></td><td>Название домена с папкой (если есть)</td></tr>
 	<tr><td><code>%server%</code></td><td>Полный адрес ленда</td></tr>
 	<tr><td><code>%agent%</code></td><td>Полная информация о браузере</td></tr>
 	<tr><td><code>%ip%</code></td><td>IP-адрес</td></tr>
+	<tr><td><code>%remote_host%</code></td><td>Имя Internet-хоста IP-адреса</td></tr>
 	<tr><td><code>%proxy%</code></td><td>Наличие прокси</td></tr>
 	<tr><td><code>%country_code%</code></td><td>Код страны (по ip)</td></tr>
 	<tr><td><code>%country%</code></td><td>Название страны на русском (по ip)</td></tr>
@@ -467,7 +480,7 @@
 	<tr><td><code>%device%</code></td><td>Устройство (компютер или мобильный)</td></tr>
 	<tr><td><code>%os%</code></td><td>Операционная система</td></tr>
 	<tr><td><code>%visit%</code></td><td>Количество визитов</td></tr>
-	<tr><td><code>%visit_text%</code></td><td>Перечень прошлых визитов на сайт</td></tr>
+	<tr><td><code>%visit_text%</code></td><td>Прошлый визит на сайт</td></tr>
 	<tr><td><code>%screen%</code></td><td>Разрешение экрана</td></tr>
 	<tr><td><code>%batery_proc%</code></td><td>Заряд батареи</td></tr>
 	<tr><td><code>%batery_zar%</code></td><td>Наличие зарядного устройства</td></tr>
