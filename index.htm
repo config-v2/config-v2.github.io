@@ -45,6 +45,8 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeDefault.min.css" />
 		<script type="text/javascript">SyntaxHighlighter.all();</script>
+		<script type="text/javascript" id="widget-wfp-script" src="https://secure.wayforpay.com/server/pay-widget.js?ref=button"></script> 
+		<script type="text/javascript">function runWfpWdgt(){(new Wayforpay).invoice("https://secure.wayforpay.com/button/b44c537ac9673")}</script>
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -63,6 +65,7 @@
 	</div>
 	<p class="text-center"><a href="https://github.com/config-v2/repository" target="_blank">Скачать Конфигуратор v.2.1 (актуальная версия) </a></p>
 	<p class="text-center"><a href="https://github.com/config-v2/1.9" target="_blank">Конфигуратор v.1.9 (для любителей старины)</a></p>
+	<p class="text-center"><a href="#"  onclick="runWfpWdgt();">ПОДДЕРЖАТЬ ПРОЕКТ</a></p>
 	<div class="row"> 
 	<div class="col-lg-3 col-md-3"> 
 	<ul class="nav nav-pills nav-stacked">
@@ -81,7 +84,10 @@
             <li><a class="go_to" href="#block2">Допольнительные блоки</a></li>
             <li><a class="go_to" href="#eml">Настройка письма</a></li>
 	</ul>
+	<li><a class="go_to" href="#error">Ошибки в работе</a></li>
     <li><a class="go_to" href="#about">Разработчик</a></li>
+    <li><a href="#" onclick="runWfpWdgt();">ПОДДЕРЖАТЬ ПРОЕКТ</a></li>
+	
   </li>
 </ul>
 	</div>
@@ -105,6 +111,7 @@
 	<h3 align="center">ЭТО РЕШЕНИЕ ДЛЯ ВАС!</h3>
 	</p>
 	<p class="text-center"><a href="https://github.com/config-v2/repository" target="_blank">Скачать Конфигуратор v.2.1 (актуальная версия) </a></p>
+	<p class="text-center"><a href="#"  onclick="runWfpWdgt();">ПОДДЕРЖАТЬ ПРОЕКТ</a></p>
 	<hr>
 	<h2 id="video1">Видеоинструкция по использованию</h2>
 	<div class="thumb-wrap">
@@ -124,17 +131,21 @@
 	<h2 id="sprav">Справочник по установке</h2>
 	<p class="text-center"><a href="https://github.com/config-v2/repository" target="_blank">Скачать Конфигуратор v.2.1 (актуальная версия) </a></p>
 	<p class="text-center"><a href="https://github.com/config-v2/1.9" target="_blank">Конфигуратор v.1.9 (для любителей старины)</a></p>
+	<p class="text-center"><a href="#"  onclick="runWfpWdgt();">ПОДДЕРЖАТЬ ПРОЕКТ</a></p>
 	<p>Как вы могли убедится - установка конфигуратора не представляет особой сложности. Для визуального понимания - выкладываю код примера лендинга с установленными блоками</p>
-	<p id="php"><strong>Требование к хостингу для корректной работы Конфигуратора минимальны и стандартны</strong>
+	<p id="php"><strong>Требование к хостингу для корректной работы Конфигуратора<br>минимальны, стандартны и работают на подавляющем большинстве хостингов:</strong>
 	<ul> 
 	<li>Поддержка PHP, версия не ниже 5.3</li>
-	<li>Поддержка в PHP сессий</li>
+	<li>Возможность записи в текстовые файлы (возможно потребуется установка уровня доступа)</li>
+	<li>Поддержка в PHP сессий ($_SESSION)</li>
+	<li>Поддержка в PHP Cookie</li>
 	<li>Подключенная к PHP библиотека CURL (для возможности отправки заявок в СРМ и на Telegram)</li>
-	<li>Возможность отправки электронной почты с сайта</li>
+	<li>Возможность отправки электронной почты с сайта (функция mail)</li>
 	</ul>
 	</p>
 	<p>В качестве блоков используются PHP переменные и функции, заключенные в обозначение PHP и функции <strong>echo</strong><br>
-	Переменные (для того, что бы отличать их от функций) в PHP начинаются со знака <strong>$</strong>, например <strong>$price_new</strong><br><strong>Примечание.</strong> Записи <code>&lt;? echo переменная ?&gt;</code> и <code>&lt;?= переменная ?&gt;</code> - абсолютно аналогичные.</p>
+	Переменные (для того, что бы отличать их от функций) в PHP начинаются со знака <strong>$</strong>, например <strong>$price_new</strong><br>Функции в конце содержат параметры в скобках, а если нет параметров - то пустые скобки, например <strong>func()</strong>
+	<strong>Примечание.</strong> Записи <code>&lt;? echo переменная ?&gt;</code> и <code>&lt;?= переменная ?&gt;</code> - абсолютно аналогичные.</p>
 	<p>Если вы пользуетесь операционной системой <strong>Windows</strong> - то для редактирования файла <strong><i>index.php</i></strong>при установке конфигуратора удобнее всего пользоваться бесплатным текстовым редактором <strong>Notepad++</strong>.<br>Скачать его можно c официального сайта <a href="https://notepad-plus-plus.org/download/" target="_blank">https://notepad-plus-plus.org/</a>.</p><p>Хотя это не принципиально. Можно воспользоваться любым привычным для вас редактором.</p>
 	<h3 id="example">Пример страницы <strong>index.php</strong><br><small>с установленными блоками Конфигуратора 2.1 (содержится в дистрибутиве)</small></h3>
 	<p><pre class="brush: php">&lt;? require_once('config.php'); //  Подключаем конфигуратор ?&gt;
@@ -395,6 +406,14 @@
 	<tr><td><code> &lt;?= $remote_addr ?&gt;</code></td><td>IP-адрес пользователя</td></tr>
 	<tr><td><code> &lt;?= $remote_host ?&gt;</code></td><td>Доменное имя узла IP-адреса пользователя</td></tr>
 	<tr><td><code> &lt;?= $proxy ?&gt;</code></td><td>Наличие прокси</tr>
+	<tr><td><code> &lt;?  config::is_bot() ?&gt;</code></td><td>Является ли посетитель ботом <br><strong>true</strong> - Бот<br><strong>false</strong> - Обычный посетитель, или неизвестный бот</tr>
+	<tr><td><code> &lt;?  config::is_mobile() ?&gt;</code></td><td>Принадлежность браузера к мобильным устройствам:<br>
+    - Возвращает false - если браузер не определен или стационарный<br>
+    - Возвращает от 1 до 4 (зависит от типа определения) - если браузер относится к мобильным устройствам<br>
+	Если требуются действия в зависимости от типа браузера, можем использовать такой код:<br>
+	<code>&lt;?<br>if (config::is_mobile()&gt;0)<br>{ [действия для моб] } <br> else <br> { [действия для компа]}<br>?&gt;</code>
+	
+	</td></tr>
 
 	
 	</table><hr>
@@ -433,22 +452,22 @@
 	<tr><td colspan="2" ><b>Товар:</b><font size="5" color="#FF0000"> Демонстрация возможностей Конфигуратора v.2.0</font></td></tr><tr><td><b>Цена:&nbsp; </b></td><td >490 грн</td></tr><tr><td><b>Старая цена:&nbsp; </b></td><td >1490 грн</td></tr>
 	<tr><td><b>Скидка:&nbsp; </b></td><td >53 %</td></tr><tr><td ><b>Покупатель:</b></td><td>Test by Proger</td></tr><tr><td ><b>Телефон: </b></td><td>+38(050) 478-42-74</td></tr><tr><td ><b>Сайт продажи:</b></td><td><a href='#' >http://site.com</a></td></tr><tr><td ><b>Дата заказа: </b></td><td>Пт, 18 Мая 2018 г.</td></tr><tr><td ><b>Время заказа: </b></td><td>13:26:35</td></tr></table><table border='0'>
 	<tr><td colspan='2' height='40' ><p align='center'><i>Информация о покупателе:</i></td></tr>
-	<tr><td><b>IP покупателя:</b></td><td>46.118.100.210</td></tr><tr>
+	<tr><td><b>IP покупателя:</b></td><td>178.62.84.228</td></tr><tr>
 	<td><b>Использование прокси:</b></td><td>No proxy</td></tr>
-	<tr><td><b>Страна (по IP):</b></td><td>UA</td></tr>
-	<tr><td><b>Город (по IP):</b></td><td>Запорожье, Запорожская область, Украина</td></tr>
+	<tr><td><b>Страна (по IP):</b></td><td>GB</td></tr>
+	<tr><td><b>Город (по IP):</b></td><td>Лондон, Большой Лондон, Великобритания</td></tr>
 	<tr><td><b>Установленный язык:</b> </td><td>ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7</td></tr>
 	<tr><td><b>Браузер: </b> </td><td>Chrome 66.0.3359.181</td></tr>
 	<tr><td><b>Устройство:</b></td><td>Компьютер</td></tr>
 	<tr><td><b>ОС:</b></td><td>Windows 10</td></tr>
-	<tr><td><b>Время на ленде:</b></td><td>12 сек.</td></tr>
+	<tr><td><b>Время на ленде:</b></td><td>14 сек.</td></tr>
 	<tr><td><b>Кол-во визитов:</b></td><td>2</td></tr>
 	<tr><td valign='top'><b>Прошлый визит:</b></td>
-	<td><i>18.05.2018 13:08:01</i>, ip: 46.118.100.210, Хост: 46-118-100-210.broadband.kyivstar.net</u> (Запорожье, Запорожская область, Украина)<br></td></tr>
+	<td><i>16.05.2018 10:08:01</i>, ip: 178.62.84.228, Хост: Не определен</u> (Лондон, Большой Лондон, Великобритания)<br></td></tr>
 	<tr><td><b>Разрешение экрана:</b></td><td>1366 х 768</td></tr>
 	<tr><td><b>Заряд батареи:</b></td><td>60%</td></tr>
 	<tr><td><b>Зарядное устройство:</b></td><td>Подключено</td></tr>
-	<tr><td><b>Реферер:</b></td><td><a href='#' >http://f50478xq.beget.tech/ref/referal.php</a></td></tr>
+	<tr><td><b>Реферер:</b></td><td><a href='https://l.facebook.com/' >https://l.facebook.com/</a></td></tr>
 	<tr><td colspan='2'><p align='center'><b>UTM-метки: </b></p><tr><td><b>utm_source    </b> </td><td> utm_source</td></tr>
 <tr><td><b>utm_medium    </b> </td><td> utm_medium</td></tr>
 <tr><td><b>utm_campaign  </b> </td><td> utm_campaign</td></tr>
@@ -506,6 +525,23 @@
 	<tr><td><code>%comment%</code></td><td>Комментарий</td></tr>
 	
 	</table></p><hr>
+	<section id="error">
+	<h2 >Ошибки в работе Конфигуратора</h2>
+	<dl>
+	<dt>Не сохраняется информация в конфигураторе</dt>
+	<dd>Возможная причина - нет доступа к записи информации в файлы.<br>Одна из причин - ограниченные права к файлу. Установите права доступа к папке <strong>/config/data</strong> и файлам <strong>/config.php</strong> <strong>/config/data/value.php</strong> права записи в файл</dd>
+	</dl>
+	<dt>Не отправляется почта, появляется надпись: <strong style="color:red;">Произошла ошибка отправки заказа на E-mail!</strong></dt>
+	<dd>Возможных причин 2:
+	<ol>
+	<li>Не указан E-mail отправки заказа</li>
+	<li>Сервер не позволяет отправлять почту</li>
+	<ol>
+	</dd>
+	</dl>
+	</section>
+	<hr>
+	
 	<h2 id="about">Разработчик</h2>
 	<p><ul class="media-list">
   <li class="media">
@@ -524,10 +560,11 @@
  <li>В 2006 году основал многопрофильный бизнес в сфере IT<br>(разработка сайтов, запуск интернет-магазинов, полиграфия, фото-видеосъемка)</li>
  <li>Обладатель сертификата Google в области интернет-маркетинга</li>
 </ul></p>
-  
+  <p class="text-center"><a href="#"  onclick="runWfpWdgt();">ПОДДЕРЖАТЬ ПРОЕКТ</a></p>
     </div>
   </li>
 </ul></p>
+
 	</div>
 	</div>
 	</div>
