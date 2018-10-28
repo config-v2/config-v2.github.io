@@ -232,10 +232,10 @@
 				&lt;div class=&quot;row&quot;&gt;
 					&lt;div class=&quot;col-md-7 col-lg-7 thumbnail&quot;&gt; 
 						&lt;h3&gt;
-							Видеообзор устаревшей версии 1.9:
+							Видеообзор версии 2.3:
 						&lt;/h3&gt;
 						&lt;div class=&quot;thumb-wrap&quot;&gt;
-							&lt;iframe width=&quot;854&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/I56D87MHQnI&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt;
+							&lt;iframe width=&quot;854&quot; height=&quot;480&quot; src=&quot;https://www.youtube.com/embed/bHGkCu3VhEk&quot; frameborder=&quot;0&quot; allow=&quot;autoplay; encrypted-media&quot; allowfullscreen&gt;&lt;/iframe&gt; 
 						&lt;/div&gt;
 						&lt;h3&gt;
 							Как Вы раньше обходились без конфигуратора?
@@ -482,7 +482,7 @@
 	<tr><td><strong>Скрипт обработки формы.</strong><br>Размещается в поле <strong><i>action</i></strong> формы.<br>Например: <code>&lt;form action="zakaz.php" method="post" &gt;</code><br>Также обратите внимание, что должен быть указан метод передачи данных - <strong><i>POST</i></strong> (см. пример)</td><td><code>zakaz.php</code></td></tr>
 	<tr><td><strong>Переменная "Имя покупателя".</strong><br>Размещается в поле  <strong><i>name</i></strong> тега <strong><i>input</i></strong> формы.<br>Примеры:<br><code>&lt;input type="text" name="name" required placeholder="Имя"&gt;</code><br><code>&lt;input type="text" name="fio" required placeholder="Имя"&gt;</code><br>Важно. <br>Необходимо проверить (и если нет, то присвоить тегу атрибут <strong><i>required</i></strong> - чтобы не отправлялась пустая форма (см. пример)</td><td><code>name</code> <small>или</small><br><code>fio</code></td></tr>
 	<tr><td><strong>Переменная "Телефон покупателя".</strong><br>Размещается в поле  <strong><i>name</i></strong> тега <strong><i>input</i></strong> формы.<br>Примеры:<br><code>&lt;input type="text" name="phone" required class="form-control" placeholder="Телефон"&gt;</code><br><code>&lt;input type="text" name="tel" required class="phone" placeholder="Телефон"&gt;</code><br>Важно. <br>Необходимо проверить (и если нет, то присвоить тегу атрибут <strong><i>required</i></strong> - чтобы не отправлялась пустая форма (см. пример)</td><td><code>phone</code> <small>или</small><br><code>tel</code></td></tr>
-
+	<tr><td><strong>Переменная "Комментарий".</strong><br>Размещается в поле  <strong><i>comment</i></strong> тега <strong><i>input</i></strong> формы.<br>Примеры:<br><code>&lt;input type="text" name="comment" required class="form-control" placeholder="Комментарий"&gt;</code><br><code>&lt;input type="hidden" name="comment" value="Комментарий"&gt;</code><br>Опциональное поле.</td></tr>
 	</table></p>
 	<p> <blockquote> <small>
 	<strong>Примечание 1.</strong><br>Если в вашем ленде несколько форм, и вам важно знать с какой из форм поступила заявка</strong>, то добавьте между тегами <code>&lt;form&gt;</code> и <code>&lt;/form&gt;</code> блок <code> &lt;? lands::form('название формы'); ?&gt;</code>
@@ -569,7 +569,6 @@
 	&lt;tr&gt;&lt;td&gt;&lt;b&gt;Зарядное устройство:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;%batery_zar%&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td&gt;&lt;b&gt;Реферер:&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href='%refer%' target='_blank'&gt;%refer%&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
 	&lt;tr&gt;&lt;td colspan='2'&gt;&lt;p align='center'&gt;&lt;b&gt;UTM-метки: &lt;/b&gt;&lt;/p&gt;%utm% &lt;/td&gt;&lt;/tr&gt;
-	&lt;tr&gt;&lt;td&gt;&lt;b&gt;Комментарий к заказу:  &lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;p&gt;%comment%&lt;/p&gt;&lt;/td&gt;&lt;/tr&gt;
 	&lt;/table&gt;
 	</pre></p>
 	<p> Этот код генерирует письмо такого содержания:
@@ -577,7 +576,7 @@
   <div class="panel-body">
     <table border="0">
 	<tr><td colspan="2" ><b>Товар:</b><font size="5" color="#FF0000"> Демонстрация возможностей Конфигуратора v.2.0</font></td></tr><tr><td><b>Цена:&nbsp; </b></td><td >490 грн</td></tr><tr><td><b>Старая цена:&nbsp; </b></td><td >1490 грн</td></tr>
-	<tr><td><b>Скидка:&nbsp; </b></td><td >53 %</td></tr><tr><td ><b>Покупатель:</b></td><td>Test by Proger</td></tr><tr><td ><b>Телефон: </b></td><td>+38(050) 478-42-74</td></tr><tr><td ><b>Сайт продажи:</b></td><td><a href='#' >http://site.com</a></td></tr><tr><td ><b>Дата заказа: </b></td><td>Пт, 18 Мая 2018 г.</td></tr><tr><td ><b>Время заказа: </b></td><td>13:26:35</td></tr></table><table border='0'>
+	<tr><td><b>Скидка:&nbsp; </b></td><td >53 %</td></tr><tr><td ><b>Покупатель:</b></td><td>Test by Proger</td></tr><tr><td ><b>Телефон: </b></td><td>+38(050) 478-42-74</td></tr><tr><td ><b>Сайт продажи:</b></td><td><a href='#' >http://site.com</a></td></tr><tr><td ><b>Дата заказа: </b></td><td>Пт, 18 Мая 2018 г.</td></tr><tr><td ><b>Время заказа: </b></td><td>13:26:35</td></tr><tr><td><b>Комментарий к заказу:  </b></td></tr></table><table border='0'>
 	<tr><td colspan='2' height='40' ><p align='center'><i>Информация о покупателе:</i></td></tr>
 	<tr><td><b>IP покупателя:</b></td><td>178.62.84.228</td></tr><tr>
 	<td><b>Использование прокси:</b></td><td>No proxy</td></tr>
@@ -601,7 +600,7 @@
 <tr><td><b>utm_content   </b> </td><td> utm_content</td></tr>
 <tr><td><b>utm_term      </b> </td><td> Тест UTM-меток</td></tr>
  </td></tr>
-	<tr><td><b>Комментарий к заказу:  </b></td><td><p></p></td></tr>
+	
 	</table>
   </div>
 </div>
@@ -652,7 +651,7 @@
 	<tr><td><code>%utm_medium%</code></td><td>UTM-метка utm_medium</td></tr>
 	<tr><td><code>%utm_content%</code></td><td>UTM-метка utm_content</td></tr>
 	<tr><td><code>%utm_term%</code></td><td>UTM-метка </td></tr>
-	<tr><td><code>%comment%</code></td><td>Комментарий</td></tr>
+	
 	
 	</table></p><hr>
 	<section id="error">
