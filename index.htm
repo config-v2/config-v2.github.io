@@ -160,7 +160,7 @@
 	</ul>
 	</p>
 	<blockquote>
-	<p><small>В качестве блоков используются PHP переменные и функции, заключенные в обозначение использования PHP и функции вывода <strong><code>echo</code></strong><br>
+	<p><small>В качестве блоков используются PHP переменные и функции, заключенные в обозначение использования PHP и функции вывода <strong><code>echo</code></strong>, а также блоки для наполнения текстом по технологии jQuery <strong><code>&lt;span&gt;&lt;/span&gt;</code></strong>, с указанием соответсвующих классов.<br>
 	Переменные (для того, что бы отличать их от функций) в PHP начинаются со знака <strong>$</strong>, например: <strong><code>$price_new</code></strong><br>Функции в конце содержат параметры в скобках, а если нет параметров - то пустые скобки, например: <strong><code>func()</code></strong>
 	<strong>Примечание.</strong> Записи <strong><code>&lt;? echo переменная ?&gt;</code></strong> и <strong><code>&lt;?= переменная ?&gt;</code></strong> - абсолютно аналогичные.</small></p>
 	<p><small>Если вы пользуетесь операционной системой <strong>Windows</strong> - то для редактирования файла <strong><i>index.php</i></strong>&nbsp;при установке конфигуратора удобнее всего пользоваться бесплатным текстовым редактором <strong>Notepad++</strong>.<br>Скачать его можно c официального сайта <a href="https://notepad-plus-plus.org/download/" target="_blank">https://notepad-plus-plus.org/</a>.\<br>Хотя это не принципиально. Можно воспользоваться любым привычным для вас редактором.</small></p>
@@ -378,7 +378,7 @@
 									&lt;footer&gt;
 										&lt;?= lands::random_name('w'); // Случайное нейтральное имя ?&gt;,
 										&lt;cite title=&quot;Source Title&quot;&gt;
-											г. &lt;?= $geocity; // Город пользователя ?&gt;
+											г. &lt;span class=&quot;config_city&quot;&gt &lt;span&gt;  &lt;!-- Город посетителя --&gt;
 										&lt;/cite&gt;
 									&lt;/footer&gt;
 							&lt;/blockquote&gt;
@@ -451,7 +451,7 @@
 			});
 		&lt;/script&gt;
 		
-	&lt;?  lands::footer(); // Дополнительная часть скриптов, ставим перед закрывающимся /body ?&gt;
+	&lt;?  lands::footer($body2_index64); // Дополнительная часть скриптов, ставим перед закрывающимся /body ?&gt;
 	&lt;/body&gt;
 &lt;/html&gt;
 
@@ -464,7 +464,7 @@
 	</ol></p>
 	<p><table class="table table-striped"> 
 	<thead>
-	<th>Блок<br><small>(с обозначением PHP кода)</small></th>
+	<th>Блок<br><small>для размещения в коде лендинга</small></th>
 	<th>Название и место установки</th>
 	</thead>
 	<tr><td><code>&lt;? require_once('config.php'); ?&gt;</code></td>
@@ -474,7 +474,7 @@
 	<td>Устанавливается перед закрывающимся тегом <strong><i>&lt;/head&gt;</i></strong></td></tr>
 	<tr><td><code>&lt;? lands::body($body_index64); ?&gt;</code></td>
 	<td>Устанавливается сразу после открывающегося тега <strong><i>&lt;body&gt;</i></strong></td></tr>
-	<tr><td><code>&lt;?  lands::footer(); ?&gt;</code></td>
+	<tr><td><code>&lt;?  lands::footer($body2_index64); ?&gt;</code></td>
 	<td>Устанавливается перед закрывающимся тегом <strong><i>&lt;/body&gt;</i></strong></td></tr>
 	<tr><td><code>&lt;?= $currency ?&gt;</code></td><td><strong>Валюта.</strong><br>Размещается в обозначении валюты</td></tr>
 	<tr><td><code>&lt;?= $valuta ?&gt;</code></td><td><strong>Валюта.</strong><br>Дубликат переменной ,<code>&lt;?= $currency ?&gt;</code>, для совместимости с 1 версией</td></tr>
@@ -510,12 +510,17 @@
 	<p>Доступные данные из конфигуратора, которые также можно использовать в сайте </p>
 	<table class="table table-striped"> 
 	<thead>
-	<th>Блок<br><small>(с обозначением PHP кода)</small></th>
+	<th>Блок<br><small>(для размещения в коде лендинга)</small></th>
 	<th>Название и место установки</th>
 	</thead>
 	<tr><td><code>&lt;?= $product ?&gt;</code></td><td>Название продукта</td></tr>
-	<tr><td><code>&lt;?= $geocity; ?&gt;</code></td><td>Город пользователя (по ip)</td></tr>
-	<tr><td><code>&lt;?= $city;  ?&gt;</code></td><td>Город+область+страна пользователя (по ip)</td></tr>
+	
+	<tr><td><code>&lt;span class=&quot;config_city&quot;&gt &lt;/span&gt; </code></td><td>Город посетителя (по ip)</td></tr>
+	<tr><td><code>&lt;span class=&quot;config_region&quot;&gt &lt;/span&gt; </code></td><td>Регион посетителя (по ip)</td></tr>
+	<tr><td><code>&lt;span class=&quot;config_country&quot;&gt &lt;/span&gt; </code></td><td>Страна посетителя (по ip)</td></tr>
+	<tr><td><code>&lt;span class=&quot;config__country_code&quot;&gt &lt;/span&gt; </code></td><td>Код страны посетителя (по ip)</td></tr>
+	<tr><td><code>&lt;span class=&quot;time_zone&quot;&gt &lt;/span&gt; </code></td><td>Часовой пояс посетителя (на устройстве)</td></tr>
+	
 	<tr><td><code>&lt;?= lands::random_name(Параметр); ?&gt</code></td><td>Случайное имя. <br>Параметры: <ul><li><strong>m</strong> - Мужское имя</li>
 	<li><strong>w</strong> - Женское имя</li>	<li><strong>n</strong> - Нейтральное имя</li></ul></td></tr>
 	<tr><td><code>&lt;?= lands::random_city($country_script);  ?&gt;</code></td><td>Случайный город по настройкам ГЕО</td></tr>
